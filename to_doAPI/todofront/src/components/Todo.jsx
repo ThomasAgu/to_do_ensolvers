@@ -3,13 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDeleteLeft, faEdit } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-const Todo = ({ id, info, finished, setTodos, todos, todo , change,  setChange, todoEdit, setToDoEdit}) => {
+const Todo = ({ id, info, finished, setTodos, todos, todo , changeTodo,  setChangeTodo, todoEdit, setToDoEdit}) => {
   const baseURL = `http://127.0.0.1:8000/api/todos/`;
   
   const deleteHandler = () => {
 
     axios.delete(baseURL+todo.id).then(res => {
-      setChange(change+1)
+      setChangeTodo(changeTodo+1)
       console.log(res);
       console.log(res.data);
     })
@@ -18,7 +18,7 @@ const Todo = ({ id, info, finished, setTodos, todos, todo , change,  setChange, 
   const completeHandler = () => {
     let value = (document.getElementById(`checkBox${todo.id}`).checked)
     axios.put(baseURL+todo.id, {info: info, finished: value}).then(res => {
-      setChange(change+1)
+      setChangeTodo(changeTodo+1)
       console.log(res);
       console.log(res.data);
     });
