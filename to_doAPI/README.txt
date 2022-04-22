@@ -1,0 +1,1 @@
+Tecnhologies And credentials
