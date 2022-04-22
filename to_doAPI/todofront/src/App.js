@@ -28,8 +28,8 @@ function App() {
       <header className="App-header">
         <h1> To do list</h1>
       </header>
-      <Form todos={todos} setTodos={setTodos}inputText={inputText} setInputText={setInputText}  change={change}  setChange={setChange} />
-      <ToDoList todos={todos} setTodos={setTodos}  change={change}  setChange={setChange}/>
+      {/* <Form todos={todos} setTodos={setTodos}inputText={inputText} setInputText={setInputText}  change={change}  setChange={setChange} />
+      <ToDoList todos={todos} setTodos={setTodos}  change={change}  setChange={setChange}/> */}
     </div>
   );
 }
