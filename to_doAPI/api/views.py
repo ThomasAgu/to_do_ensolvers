@@ -33,7 +33,7 @@ class TodoView(View):
     
     def post(self,request):
         jd = json.loads(request.body)
-        Todo.objects.create(info=jd['name'], finished=jd['finished'])
+        Todo.objects.create(info=jd['info'], finished=jd['finished'])
         data={'message':'success'}
         return JsonResponse(data)
     
@@ -43,10 +43,10 @@ class TodoView(View):
         todos= list(Todo.objects.filter(id=id).values())
         if len(todos)>0:
             todo=Todo.objects.get(id=id)
-            todo.info=jd['name']
+            todo.info=jd['info']
             todo.finished=jd['finished']
             todo.save()
-            data={'message':'success'}
+            data={'data':todo.info}
         else:
             data= {'message': 'todo not found'}
         return JsonResponse(data)

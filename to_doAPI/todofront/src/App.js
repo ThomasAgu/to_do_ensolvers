@@ -1,21 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Form from "./components/FormTodo"
 import ToDoList from './components/TodoList'
+import axios from "axios"
 /* import NavVar from './components/NavVar'; */
-import axios from 'axios'
+
+
 
 function App() {
+
+  const baseURL= `http://127.0.0.1:8000/api/todos/`;
   //Use state
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
-  const [isLogged, setIsLogged] = useState(false); 
+  const [change, setChange]= useState(0)
+  //useEffecT
+  useEffect(() => {
+      axios.get(baseURL).then((response) => {
+        setTodos(response.data.todos);
+    });
+  }, [change]);
 
-  /* prueba axios */
-  const baseURL = `http://127.0.0.1:8000/api/todos/`
-  axios.get(baseURL).then((response)=>{
-    console.log(response)
-  })
 
   return (
     <div className="App">
@@ -23,8 +28,8 @@ function App() {
       <header className="App-header">
         <h1> To do list</h1>
       </header>
-      <Form todos={todos} setTodos={setTodos} inputText={inputText} setInputText={setInputText}/>
-      <ToDoList todos={todos} setTodos={setTodos} />
+      <Form todos={todos} setTodos={setTodos}inputText={inputText} setInputText={setInputText}  change={change}  setChange={setChange} />
+      <ToDoList todos={todos} setTodos={setTodos}  change={change}  setChange={setChange}/>
     </div>
   );
 }
