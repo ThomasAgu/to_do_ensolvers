@@ -5,7 +5,7 @@ import axios from "axios";
 import ToDoList from './TodoList';
 
 
-const Group = ({id, name, setGroups, groups, group, change, setChange, inputText, setInputText, setActGroup}) => {
+const Group = ({id, name, setGroups, groups, group, change, setChange, inputText, setInputText, setActGroup, setActGroupName}) => {
 
     const baseURL = `http://127.0.0.1:8000/api/groups/`;
     const [changeTodo, setChangeTodo]= useState(0)
@@ -18,8 +18,6 @@ const Group = ({id, name, setGroups, groups, group, change, setChange, inputText
 
     const openHandler = () =>{
         axios.get(baseURL+group.id).then((response) => {
-            /* setGroups(response.data.groups); */
-            console.log(response.data.todos)
             setTodos(response.data.todos);
         });
         setIsActivate(!isActivate)
@@ -34,27 +32,27 @@ const Group = ({id, name, setGroups, groups, group, change, setChange, inputText
       };
 
     const handleClickAdd = () =>{
-        setInputText(group.name)
+        setActGroupName(group.name)
         setActGroup(group.id)
     }   
     return (
         <div>
-            <div className="todo">
-            <div >{name} </div>
-            <div id="todo-buttons">
-                <button className="todo-btn" onClick={handleClickAdd}>
+            <div className="group">
+            <div id='group-name' className='group-name'>{name} </div>
+            <div id="group-buttons">
+                <button className="group-btn" onClick={handleClickAdd}>
                     {" "}
                     <FontAwesomeIcon icon={faCirclePlus} />
                 </button>
-                <button className="todo-btn" onClick={openHandler}>
+                <button className="group-btn" onClick={openHandler}>
                     {" "}
                     <FontAwesomeIcon icon={faCaretSquareDown} />
                 </button>
-                <button className="todo-btn" onClick={deleteHandler}>
+                <button className="group-btn" onClick={deleteHandler}>
                     {" "}
                     <FontAwesomeIcon icon={faDeleteLeft} />
                 </button>
-                {isActivate &&(<ToDoList todos={todos} setTodos={setTodos}  changeTodo={changeTodo}  setChangeTodo={setChangeTodo}/> )}
+                {!isActivate &&(<ToDoList todos={todos} setTodos={setTodos}  changeTodo={changeTodo}  setChangeTodo={setChangeTodo}/> )}
             
             </div>
         </div>

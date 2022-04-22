@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-const FormTodo = ({ todos, setTodos, inputText, setInputText, actGroup }) => {
+const FormTodo = ({ todos, setTodos, inputText, setInputText, actGroup, actGroupName, setActGroupName}) => {
   
   const baseURL = `http://127.0.0.1:8000/api/todos/`;
   
@@ -22,20 +22,27 @@ const FormTodo = ({ todos, setTodos, inputText, setInputText, actGroup }) => {
       })
      /*  setChange(change+1) */
      setInputText("");
+     setActGroupName("");
     }
   };
+  if (actGroupName==="")return null
   return (
-    <form>
-      <input
-        type="text"
-        className="todo-input"
-        value={inputText}
-        onChange={inputTextHandle}
-      />
-      <button className="todo-button" type="submit" onClick={submitHandle}>
-        <FontAwesomeIcon icon={faCirclePlus} />
-      </button>
-    </form>
+    <div id="form-todo">
+      <form>
+        <h5 id="title-form-todo">Add to the group: {actGroupName}</h5>
+        <input
+          type="text"
+          className="todo-input"
+          id="todo-input"
+          value={inputText}
+          onChange={inputTextHandle}
+        />
+        
+        <button className="todo-button" type="submit" onClick={submitHandle}>
+          <FontAwesomeIcon icon={faCirclePlus} />
+        </button>
+      </form>
+    </div>
   );
 };
 

@@ -1,25 +1,23 @@
 import React, { useState } from 'react'
-import axios from "axios";
 import Group from './Group';
-import {faCirclePlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FormTodo from './FormTodo';
 
 const GroupList = ({groups, setGroups, change, setChange}) => {
-    const [inputText, setInputText] = useState("0");
+    const [inputText, setInputText] = useState("");
     const [actGroup, setActGroup] = useState(null);
+    const [actGroupName,setActGroupName] = useState("");
     const [todos, setTodos] = useState(null)
-    const baseURL = `http://127.0.0.1:8000/api/groups/`;
 
-
-    if (!groups) return null
+    if (!groups) return (
+        <div id='groups-empty'>Add a group to start</div>
+    )
     return (
         <div>
             {groups.map((group) =>(
-                <Group key={group.id} name={group.name} groups={groups} setGroups={setGroups} group={group} change={change}  setChange={setChange} inputText={inputText} setInputText={setInputText} setActGroup={setActGroup} />
+                <Group key={group.id} name={group.name} groups={groups} setGroups={setGroups} group={group} change={change}  setChange={setChange} inputText={inputText} setInputText={setInputText} setActGroup={setActGroup} setActGroupName={setActGroupName}/>
             ))}
             <div>
-                <FormTodo todos={todos} setTodos={setTodos} inputText={inputText} setInputText={setInputText}  actGroup={actGroup}/* change={change}  setChange={setChange */  />
+                <FormTodo todos={todos} setTodos={setTodos} inputText={inputText} setInputText={setInputText}  actGroup={actGroup} actGroupName={actGroupName} setActGroupName={setActGroupName}/* change={change}  setChange={setChange */  />
 
             </div>
         </div>

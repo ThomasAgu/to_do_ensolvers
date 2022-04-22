@@ -33,9 +33,9 @@ const Todo = ({ id, info, finished, setTodos, todos, todo , changeTodo,  setChan
   return (
     <div>
       <div className="todo">
-        <div >{info} </div>
+        <div id="todo-info">{info} </div>
         <div id="todo-buttons">
-          
+        
         <input
             type="checkbox"
             className="checkbox-btn"
