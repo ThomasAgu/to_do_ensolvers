@@ -35,6 +35,7 @@ const FormTodo = ({ todos, setTodos, inputText, setInputText, actGroup, actGroup
           className="todo-input"
           id="todo-input"
           value={inputText}
+          maxLength={20}
           onChange={inputTextHandle}
         />
         

@@ -10,8 +10,6 @@ const Todo = ({ id, info, finished, setTodos, todos, todo , changeTodo,  setChan
 
     axios.delete(baseURL+todo.id).then(res => {
       setChangeTodo(changeTodo+1)
-      console.log(res);
-      console.log(res.data);
     })
   };
 
@@ -19,21 +17,19 @@ const Todo = ({ id, info, finished, setTodos, todos, todo , changeTodo,  setChan
     let value = (document.getElementById(`checkBox${todo.id}`).checked)
     axios.put(baseURL+todo.id, {info: info, finished: value}).then(res => {
       setChangeTodo(changeTodo+1)
-      console.log(res);
-      console.log(res.data);
+
     });
   };
-/* Edita */
+/* Edit */
   const editHandler = () => {
     let value = (document.getElementById(`checkBox${todo.id}`).checked)
     setToDoEdit({info: todo.info, id: todo.id, finished: value})
-    console.log()
-    console.log(todo.info);
+
   };
   return (
     <div>
       <div className="todo">
-        <div id="todo-info">{info} </div>
+        <div id="todo-info" className={`todo-info ${todo.finished ? "completed" : ''} `} >{info} </div>
         <div id="todo-buttons">
         
         <input

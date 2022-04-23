@@ -8,12 +8,18 @@ import ToDoList from './TodoList';
 const Group = ({id, name, setGroups, groups, group, change, setChange, inputText, setInputText, setActGroup, setActGroupName}) => {
 
     const baseURL = `http://127.0.0.1:8000/api/groups/`;
-    const [changeTodo, setChangeTodo]= useState(0)
+    
     const [todos, setTodos] = useState([]);
+    const [isActivate, setIsActivate] = useState(true);
+    const [changeTodo, setChangeTodo]= useState(0)
+    const changeTodoStructure = () =>{
+        axios.get(baseURL+group.id).then((response) => {
+            setTodos(response.data.todos);
+        });
+    }
 
-    const [isActivate, setIsActivate] = useState(false);
     useEffect(() => {
-        openHandler()
+        changeTodoStructure()
     }, [changeTodo]);
 
     const openHandler = () =>{
@@ -22,12 +28,13 @@ const Group = ({id, name, setGroups, groups, group, change, setChange, inputText
         });
         setIsActivate(!isActivate)
     }
+
+   
+
     const deleteHandler = () => {
 
         axios.delete(baseURL+group.id).then(res => {
           setChange(change+1)
-          console.log(res);
-          console.log(res.data);
         })
       };
 

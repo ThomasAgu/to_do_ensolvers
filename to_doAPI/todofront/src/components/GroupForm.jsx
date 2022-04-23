@@ -31,6 +31,7 @@ const GroupForm = ({setGroups, inputTextGroups, setInputTextGroups, change, setC
               value={inputTextGroups}
               onChange={inputTextHandle}
               placeholder="Add a new group..."
+              maxLength={25}
               />
               <button className="" type="submit"  id='group-form-btn' onClick={submitHandle}>
               <FontAwesomeIcon icon={faCirclePlus} id='group-form-btn-logo' />

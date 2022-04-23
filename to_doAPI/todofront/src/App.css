@@ -116,7 +116,9 @@ body {
 .todo{
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding-left: 10%;
+  padding-bottom: 2%;
   text-align: center;
   top: 0.4em;
   width: 300%;
@@ -125,16 +127,14 @@ body {
   border-radius: 15px ;
   left: -210%;
   margin-bottom: 1%;
+  
 }
 
 #todo-buttons{
   display: flex;
-
+  padding-right: 10%;
 }
 
-/* .checkbox-btn{
-  height: 200%;
-} */
 
 .todo-btn{
   width: 3em;
@@ -162,6 +162,34 @@ body {
 }
 #todo-info{
   padding-top: 0.5em;
+}
+
+#form-edit-todo{
+  padding-top: 3% ;
+  position: relative;
+  left: -120%;
+}
+#inputAct{
+/*   background-color: blue; */
+  width: 80%;
+  font-size: medium;
+  border-radius: 12px;
+  border: none;
+  text-align: start;
+  padding-left: 5%;
+}
+
+#buttonAct{
+  position: absolute;
+  left: 70%;
+  bottom: 10%;
+  width: 20%;
+  height: 30%;
+  border: none;
+  background-color: #2B2B40;
+  color: white;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .completed{
