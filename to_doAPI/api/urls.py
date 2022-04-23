@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import TodoView
-from .views import GroupView
+#from .views import TodoView
+from .Controllers.TodoController import TodoView
+from .Controllers.GroupController import GroupView
 
 urlpatterns=[
     path('todos/', TodoView.as_view(), name='todos_list'),
