@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from .models import Group, Todo
+from .Models.Group import Group
+from .Models.Todo import Todo
 
 # Register your models here.
 admin.site.register(Todo)

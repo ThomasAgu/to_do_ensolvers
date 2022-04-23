@@ -1,4 +1,4 @@
-from ..models import Group
+from ..Models.Group import Group
 
 class GroupDAO():
     def getGroups():

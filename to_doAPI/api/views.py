@@ -5,8 +5,9 @@ from django.http import JsonResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views import View
-from .models import Todo
-from .models import Group
+#from .models import Todo
+from .Models.Todo import Todo
+from .Models.Group import Group
 
 #DAO
 from .apidao.todoDAO import TodoDao
