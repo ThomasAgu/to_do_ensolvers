@@ -20,7 +20,6 @@ const FormTodo = ({ todos, setTodos, inputText, setInputText, actGroup, actGroup
 
       axios.post(baseURL, {info: inputText, finished: false, group:actGroup}).then(res => {
       })
-     /*  setChange(change+1) */
      setInputText("");
      setActGroupName("");
     }
