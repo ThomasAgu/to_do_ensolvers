@@ -1,4 +1,9 @@
 Dependencies
+
+This app was executed in Linux Ubuntu v22.04
+To run this you have to run both exec- todoapp.sh (React app) and Backapp.sh (django app)
+
+
 From Django:
 
 asgiref             3.5.0
@@ -11,11 +16,8 @@ sqlparse            0.4.2
 tzdata              2022.1
 wheel               0.37.1
 
-From React app
+From Reac:
 {
-  "name": "todofront",
-  "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
@@ -31,28 +33,4 @@ From React app
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
 }
